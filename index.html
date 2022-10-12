@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<style>
+        #card {
+            background-color: aqua;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="input">
+
+        <div id="card">
+            <p id="card-text"></p>
+            <img id="card-image" src="" />
+        </div>
+    </div>
+
+    <script>
+        window.onload = () => {
+            const card = document.getElementById('card');
+            const card_text = document.getElementById('card-text');
+            const card_image = document.getElementById('card-image');
+            const input = document.getElementById('input');
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    const arr = event.target.value.split(' ');
+
+                    if (arr[0] !== undefined && arr[1] !== undefined) {
+                        card.style.display = 'block';
+                        card_text.innerText = arr[0];
+                        card_image.src = arr[1];
+                    }
+                }
+            })
+        }
+    </script>
+	<script src="app.js"></script>
+</body>
+
+</html>
